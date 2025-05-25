@@ -26,6 +26,61 @@ router.post('/register', async (req, res) => {
   }
 });
 
+// UPDAAAAAATE
+router.post('/update/:uid', async (req, res) => {
+  const { uid } = req.params;
+  const { nombre, apellido, email, password } = req.body;
+
+  try {
+    const usuariosRef = db.collection('usuarios');
+    const q = usuariosRef.where("uid", "==", uid);
+    const snapshot = await q.get();
+
+    if (snapshot.empty) {
+      return res.status(404).json({ message: "Usuario no encontrado." });
+    }
+
+    const userDoc = snapshot.docs[0];
+    await userDoc.ref.update({
+      nombre,
+      apellido,
+      email,
+      password
+    });
+
+    return res.status(200).json({ message: "Usuario actualizado correctamente." });
+  } catch (error) {
+    console.error("Error al actualizar usuario:", error);
+    return res.status(500).json({ message: "Error al actualizar usuario.", error: error.message });
+  }
+});
+
+module.exports = router;
+
+
+// Deletrear
+router.delete('/delete/:uid', async (req, res) => {
+  const { uid } = req.params;
+
+  try {
+    const usuariosRef = db.collection('usuarios');
+    const q = usuariosRef.where("uid", "==", uid);
+    const snapshot = await q.get();
+
+    if (snapshot.empty) {
+      return res.status(404).json({ message: "Usuario no encontrado." });
+    }
+
+    const userDoc = snapshot.docs[0];
+    await userDoc.ref.delete();
+
+    return res.status(200).json({ message: "Usuario eliminado correctamente." });
+  } catch (error) {
+    console.error("Error al eliminar usuario:", error);
+    return res.status(500).json({ message: "Error al eliminar usuario.", error: error.message });
+  }
+});
+
 
 // Autenticación de cuenta
 router.post('/authenticate', async (req, res) => {
@@ -74,32 +129,89 @@ module.exports = router
 // lista de usuarios
 router.get('/usuarios', async (req, res) => {
   try {
+    const page = parseInt(req.query.page) || 1; 
+    const limit = parseInt(req.query.limit) || 10; 
+    const offset = (page - 1) * limit; 
+
     const usuariosRef = db.collection('usuarios');
-    const snapshot = await usuariosRef.get(); // Obtiene todos los documentos de la colección 'usuarios'
+
+    // Paso 1: Obtener el conteo total de documentos para calcular totalPages
+    const totalSnapshot = await usuariosRef.get();
+    const totalItems = totalSnapshot.size; // Esto te da el número total de documentos
+
+    // Paso 2: Construir la consulta con paginación
+    let query = usuariosRef.orderBy('nombre'); 
+
+    query = query.offset(offset).limit(limit);
+
+    const snapshot = await query.get(); // Ejecuta la consulta paginada
 
     const usuariosList = [];
     snapshot.forEach(doc => {
       usuariosList.push({
         id: doc.id,
-        ...doc.data() 
+        ...doc.data()
       });
     });
 
-    res.status(200).json(usuariosList); // Envía la lista de usuarios como JSON
+    // Paso 3: Calcular el total de páginas
+    const totalPages = Math.ceil(totalItems / limit);
+
+    // Paso 4: Enviar la respuesta en el formato esperado por el frontend
+    res.status(200).json({
+      items: usuariosList,
+      meta: {
+        currentPage: page,
+        totalPages: totalPages,
+        totalItems: totalItems,
+        limit: limit
+      }
+    });
+
   } catch (err) {
     console.error("Error al obtener usuarios:", err);
     res.status(500).json({ error: "Error interno al obtener usuarios" });
   }
 });
 
-//Login
-router.post('/Login', async (req, res) =>{
-  const usuarios = collection
-  const usuario = {email, password} = req.body
-  try {
-    const resultado = query()
-    
-  } catch (error) {
-    
+// Login
+router.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res.status(400).json({ message: "Email y contraseña son requeridos." });
   }
-})
+
+  try {
+    const usuariosRef = db.collection("usuarios");
+    const querySnapshot = await usuariosRef.where("email", "==", email).get();
+
+    if (querySnapshot.empty) {
+      return res.status(401).json({ message: "Credenciales inválidas." });
+    }
+
+    let authenticatedUser = null;
+    querySnapshot.forEach((doc) => {
+      const userData = doc.data();
+      if (userData.password === password) {
+        authenticatedUser = { id: doc.id, ...userData };
+      }
+    });
+
+    if (authenticatedUser) {
+      const { password, ...userWithoutPassword } = authenticatedUser;
+      return res.status(200).json({
+        message: "Inicio de sesión exitoso.",
+        user: userWithoutPassword
+      });
+    } else {
+      return res.status(401).json({ message: "Credenciales inválidas." });
+    }
+
+  } catch (error) {
+    console.error("Error al intentar iniciar sesión:", error);
+    return res.status(500).json({ message: "Error interno del servidor.", error: error.message });
+  }
+});
+
+module.exports = router;
