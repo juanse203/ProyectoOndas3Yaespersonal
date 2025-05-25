@@ -1,0 +1,297 @@
+body {
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #F8F9FA;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.details-proyecto-page {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.details-proyecto-container {
+  max-width: 90%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-out;
+}
+
+.details-header { 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.details-header h1 {
+  color: #26cea4;
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.bton-volver {
+  padding: 0.8rem 1.5rem;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bton-volver:hover {
+  background-color: #5a6268;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.btn-nuevo-avance {
+  display: inline-block;
+  background-color: #41d633;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+}
+
+.btn-nuevo-avance:hover {
+  background-color: #1bb430;
+  transform: translateY(-2px);
+}
+
+.info-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 10px;
+  padding: 1.8rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.info-card h3 {
+  color: #26cea4; 
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #F0F0F0;
+  padding-bottom: 0.8rem;
+}
+
+.proyecto-info p {
+  margin: 0; 
+  font-size: 1rem;
+  padding: 0.3rem 0;
+}
+
+.proyecto-info p strong {
+  color: #666;
+  font-weight: 600;
+}
+
+.info-grid { 
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.info-grid .full-width { 
+  grid-column: 1 / -1;
+}
+
+.project-status-display { 
+  text-align: right;
+  margin-top: 1.5rem;
+  font-size: 1.05rem;
+}
+
+.estado-etiqueta {
+  display: inline-block;
+  padding: 8px 15px; 
+  border-radius: 20px; 
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.85rem; 
+  margin-left: 10px;
+  letter-spacing: 0.5px;
+}
+
+.estado-formulación {
+  background-color: #ffc107;
+}
+
+.estado-activo {
+  background-color: #28a745;
+}
+
+.estado-evaluación {
+  background-color: #007bff;
+}
+
+.estado-inactivo {
+  background-color: #6c757d;
+}
+
+.estado-finalizado {
+  background-color: #dc3545;
+}
+
+.historial-estados ul { 
+  list-style: none;
+  padding-left: 0;
+}
+
+.historial-estados-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.historial-estados-item { 
+  background-color: #FDFDFD;
+  border: 1px solid #EAEAEA;
+  padding: 1rem 1.2rem;
+  margin-bottom: 0.8rem;
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.historial-estados-item .estado-etiqueta {
+  margin-left: 0; 
+}
+
+.estado-fecha { 
+  font-size: 0.9rem;
+  color: #888;
+  margin-left: auto; 
+}
+
+.estado-observacion {
+  flex-basis: 100%; 
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0.5rem 0 0 0;
+}
+
+.integrantes-lista ul { 
+  list-style: none;
+  padding-left: 0;
+}
+
+.integrantes-grid {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.integrante-item {
+  background-color: #EAF7ED; 
+  color: #28a745;
+  padding: 0.6rem 1rem;
+  border-radius: 20px; 
+  font-weight: 500;
+  font-size: 0.95rem;
+  border: 1px solid #D4EDDA;
+}
+
+.avances-proyecto {
+  margin-top: 2rem;
+}
+
+.avance-lista li {
+  background-color: #ffffff;
+  border: 1px solid #E0E0E0;
+  padding: 1.5rem;
+  margin-bottom: 1.2rem;
+  border-left: 6px solid #26cea4; 
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.avance-header { 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px dashed #EAEAEA;
+  font-size: 1.05rem;
+}
+
+.avance-lista li p {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.avance-lista li p strong {
+  color: #333;
+}
+
+.no-avances-message { 
+  color: #777;
+  text-align: center;
+  padding: 2rem;
+  background-color: #F0F0F0;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .details-proyecto-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .details-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .details-header h1 {
+    font-size: 2rem;
+  }
+
+  .info-card {
+    padding: 1.2rem;
+  }
+
+  .info-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .historial-estados-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .estado-fecha {
+    margin-left: 0;
+  }
+}

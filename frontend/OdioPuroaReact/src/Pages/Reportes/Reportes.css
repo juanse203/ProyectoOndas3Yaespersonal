@@ -1,0 +1,236 @@
+.body {
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-image: url('../../assets/otro-otro-fondo.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  min-height: 99vh;
+}
+
+.reportes-page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.reportes-main-content {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 1rem;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-out;
+  width: 90%;
+}
+
+.reportes-main-content h2 {
+  color: #26cea4;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-size: 2.2rem;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 1px solid #E0E0E0;
+  padding-bottom: 1rem;
+}
+
+.filtros-reportes-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.filtros-reportes-card h3 {
+  color: #26cea4;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  border-bottom: 1px solid #F0F0F0;
+  padding-bottom: 0.8rem;
+}
+
+.filtros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.input-filter,
+.select-filter {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.input-filter:focus,
+.select-filter:focus {
+  outline: none;
+  border-color: #26cea4;
+  box-shadow: 0 0 0 3px rgba(38, 206, 164, 0.2);
+}
+
+.filtros-acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primary-button {
+  background-color: #26cea4;
+  color: white;
+}
+
+.primary-button:hover {
+  background-color: #21b891;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.secondary-button {
+  background-color: #6c757d;
+  color: white;
+}
+
+.secondary-button:hover {
+  background-color: #5a6268;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.reportes-resultados-section {
+  margin-top: 2rem;
+}
+
+.reporte-lista {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.reporte-item {
+  background-color: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reporte-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.reporte-item h3 {
+  color: #26cea4;
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  font-size: 1.6rem;
+  border-bottom: 1px dashed #F0F0F0;
+  padding-bottom: 0.5rem;
+}
+
+.reporte-item p {
+  margin: 0.6rem 0;
+  font-size: 1rem;
+}
+
+.reporte-item p strong {
+  color: #666;
+  font-weight: 600;
+}
+
+.estado-etiqueta {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  margin-left: 5px;
+  letter-spacing: 0.5px;
+}
+
+.estado-formulación {
+  background-color: #ffc107;
+}
+
+.estado-activo {
+  background-color: #28a745;
+}
+
+.estado-evaluación {
+  background-color: #007bff;
+}
+
+.estado-inactivo {
+  background-color: #6c757d;
+}
+
+.estado-finalizado {
+  background-color: #dc3545;
+}
+
+.no-reports-message {
+  color: #777;
+  text-align: center;
+  padding: 2rem;
+  background-color: #F0F0F0;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .reportes-main-content {
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+    width: calc(100% - 2rem);
+  }
+
+  .reportes-main-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .filtros-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .filtros-acciones {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+  }
+
+  .reporte-lista {
+    grid-template-columns: 1fr;
+  }
+}

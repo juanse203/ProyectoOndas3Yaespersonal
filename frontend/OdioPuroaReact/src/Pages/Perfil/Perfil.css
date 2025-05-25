@@ -1,0 +1,182 @@
+.body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.perfil-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  flex-grow: 1;
+  background-color: white;
+  background-image: url('../../assets/otro-otro-fondo.jpeg');
+  background-size: contain;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+}
+
+.form-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0px;
+}
+
+.perfil-form-card {
+  background: #ffffff8a;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.perfil-form-card h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-size: 28px;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.perfil-form-card h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background-color: #4a90e2;
+  border-radius: 2px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.form-row input {
+  flex: 1;
+}
+
+.perfil-form-card input,
+.perfil-form-card select {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  font-size: 16px;
+  color: #333;
+  background-color: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.perfil-form-card input::placeholder {
+  color: #a0a0a0;
+}
+
+.perfil-form-card input:focus,
+.perfil-form-card select:focus {
+  outline: none;
+  border-color: #4ae2af;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.15);
+  background-color: #ffffff;
+}
+
+.perfil-form-card button {
+  width: 100%;
+  background-color: #4ae2a3;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 15px;
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 10px rgba(74, 144, 226, 0.2);
+}
+
+.perfil-form-card button:hover {
+  background-color: #3ad461;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(74, 144, 226, 0.3);
+}
+
+@media (max-width: 768px) {
+  .perfil-layout {
+    padding: 20px 15px;
+  }
+
+  .perfil-form-card {
+    padding: 30px;
+    border-radius: 10px;
+    gap: 12px;
+  }
+
+  .perfil-form-card h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .perfil-form-card input,
+  .perfil-form-card select {
+    padding: 10px 12px;
+    font-size: 15px;
+  }
+
+  .perfil-form-card button {
+    padding: 10px 15px;
+    font-size: 16px;
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .perfil-layout {
+    padding: 15px 10px;
+  }
+
+  .perfil-form-card {
+    padding: 25px;
+    border-radius: 8px;
+    gap: 10px;
+  }
+
+  .perfil-form-card h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  .perfil-form-card input,
+  .perfil-form-card select {
+    padding: 9px 10px;
+    font-size: 14px;
+  }
+
+  .perfil-form-card button {
+    padding: 9px 12px;
+    font-size: 15px;
+    margin-top: 10px;
+  }
+}

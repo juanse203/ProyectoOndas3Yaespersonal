@@ -1,0 +1,240 @@
+.list-proyectos-container {
+  padding: 2px;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  width: 100%;
+  background-image: url('../../../assets/otro-fondo.jpeg');
+  background-size: cover;
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.list-proyectos-container h2 {
+  text-align: center;
+  color: #343a40;
+  margin-bottom: 30px;
+  font-size: 2.5em;
+  font-weight: bold;
+  border-bottom: 2px solid #008cff;
+  padding-bottom: 10px;
+}
+
+.btn-nuevo-proyecto {
+  display: inline-block;
+  background-color: #41d633;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+}
+
+.btn-nuevo-proyecto:hover {
+  background-color: #1bb430;
+  transform: translateY(-2px);
+}
+
+.proyectos-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.proyecto-item {
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.proyecto-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.proyecto-item h3 {
+  color: #495057;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.8em;
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 10px;
+}
+
+.proyecto-item p {
+  color: #6c757d;
+  margin-bottom: 8px;
+  line-height: 1.5;
+  font-size: 0.95em;
+}
+
+.proyecto-item p strong {
+  color: #343a40;
+}
+
+.estado-etiqueta {
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 0.85em;
+  display: inline-block;
+  margin-left: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.formulario-cambio-estado {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.formulario-cambio-estado select {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-size: 0.9em;
+  color: #495057;
+  background-color: #fff;
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+  cursor: pointer;
+}
+
+.formulario-cambio-estado select:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.formulario-cambio-estado button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(40, 167, 69, 0.3);
+}
+
+.formulario-cambio-estado button:hover {
+  background-color: #218838;
+  transform: translateY(-1px);
+}
+
+.historial-estados {
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px dashed #e9ecef;
+}
+
+.historial-estados h4 {
+  color: #495057;
+  margin-bottom: 15px;
+  font-size: 1.2em;
+}
+
+.historial-estados ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.historial-estados li {
+  background-color: #f2f2f2;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9em;
+}
+
+.historial-estados li .estado-etiqueta {
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+.historial-estados li .fecha-historial {
+  color: #888;
+  font-style: italic;
+  flex-grow: 1;
+}
+
+.historial-estados li small {
+  color: #999;
+  font-style: italic;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.btn-ver-detalles {
+  display: block;
+  background-color: #6c757d;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px;
+  box-shadow: 0 2px 5px rgba(108, 117, 125, 0.3);
+}
+
+.btn-ver-detalles:hover {
+  background-color: #5a6268;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .list-proyectos-container {
+    padding: 15px;
+  }
+
+  .list-proyectos-container h2 {
+    font-size: 2em;
+  }
+
+  .proyectos-lista {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-nuevo-proyecto {
+    width: 100%;
+    text-align: center;
+  }
+
+  .formulario-cambio-estado {
+    flex-direction: column;
+  }
+
+  .formulario-cambio-estado select,
+  .formulario-cambio-estado button {
+    width: 100%;
+  }
+}

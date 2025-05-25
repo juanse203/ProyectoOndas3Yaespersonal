@@ -1,0 +1,395 @@
+.body {
+    font-family: 'Inter', sans-serif;
+    background-color: #eef2f6; 
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    box-sizing: border-box; 
+}
+
+.usuarios-container {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 12px; 
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.usuarios-title {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2.5rem;
+    font-size: 2.8rem; 
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.usuarios-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px; 
+    height: 4px;
+    background-color: #4a90e2;
+    border-radius: 2px;
+}
+
+.acciones-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2rem;
+}
+
+.btn-anadir {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; 
+    padding: 14px 30px; 
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3); 
+}
+
+.btn-anadir:hover {
+    background-color: #218838;
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4);
+}
+
+.tabla-responsive {
+    overflow-x: auto;
+    margin-bottom: 2rem; 
+}
+
+.tabla-usuarios {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0; 
+    background-color: #fff;
+    border-radius: 10px; 
+    overflow: hidden; 
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.07); 
+}
+
+.tabla-usuarios th,
+.tabla-usuarios td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #e9ecef; 
+    max-width: 250px; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tabla-usuarios th {
+    background-color: #4ae2a3; 
+    color: white;
+    font-weight: 600;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px; 
+}
+
+.tabla-usuarios tbody tr:nth-child(even) {
+    background-color: #f8fafd;
+}
+
+.tabla-usuarios tbody tr:hover {
+    background-color: #e6f7ff;
+    transition: background-color 0.3s ease;
+}
+
+.rol-badge {
+    display: inline-block;
+    padding: 6px 12px; 
+    border-radius: 25px; 
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    min-width: 90px; 
+    text-transform: uppercase; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.rol-profesor {
+    background-color: #f39c12;
+}
+
+.rol-estudiante {
+    background-color: #3498db; 
+}
+
+.rol-coordinador {
+    background-color: #9b59b6; 
+}
+
+.rol-desconocido {
+    background-color: #7f8c8d;
+}
+
+.acciones-columna {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px; 
+    align-items: center;
+}
+
+.btn-accion {
+    padding: 9px 15px;
+    border: none;
+    border-radius: 6px; 
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-editar {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-editar:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.btn-eliminar {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-eliminar:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+}
+
+.loading-message,
+.error-message,
+.no-usuarios {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #6c757d;
+    padding: 3rem;
+    border: 1px dashed #d1d9e6; 
+    border-radius: 10px;
+    margin-top: 2.5rem;
+    background-color: #fdfefe;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+}
+
+.error-message {
+    color: #e74c3c;
+    border-color: #e74c3c;
+    background-color: #fef4f4;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+}
+
+.modal {
+    background-color: #fff;
+    padding: 2.5rem 3rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 550px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    animation: fadeInScale 0.3s ease-out; 
+    display: flex; 
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.modal h2 {
+    margin-bottom: 1.8rem; 
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.modal input {
+    padding: 0.9rem 1.2rem;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal input:focus {
+    outline: none;
+    border-color: #4a90e2; 
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2); 
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.modal-buttons button {
+    padding: 0.9rem 1.8rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    font-size: 1rem;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.modal-buttons .btn-guardar {
+    background-color: #28a745;
+    color: white;
+}
+
+.modal-buttons .btn-guardar:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(40, 167, 69, 0.3);
+}
+
+.modal-buttons .btn-cancelar {
+    background-color: #6c757d; 
+    color: white;
+}
+
+.modal-buttons .btn-cancelar:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(108, 117, 125, 0.3);
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem; 
+    padding-bottom: 1rem; 
+}
+
+.MuiPaginationItem-root {
+    font-size: 1rem; 
+    padding: 8px 12px; 
+}
+
+@media (max-width: 992px) {
+    .usuarios-container {
+        padding: 2rem;
+    }
+    .usuarios-title {
+        font-size: 2.5rem;
+    }
+    .tabla-usuarios th,
+    .tabla-usuarios td {
+        padding: 12px 15px;
+    }
+    .btn-anadir {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .body {
+        padding: 15px;
+    }
+    .usuarios-container {
+        margin: 15px auto;
+        padding: 1.5rem;
+    }
+    .usuarios-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    .acciones-header {
+        justify-content: center; /* Center the add button on smaller screens */
+    }
+    .btn-anadir {
+        width: 100%; /* Full width button */
+        text-align: center;
+        padding: 12px 20px;
+    }
+    .tabla-usuarios th,
+    .tabla-usuarios td {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+    .acciones-columna {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+    }
+    .btn-accion {
+        width: 100%;
+        font-size: 0.85rem;
+        padding: 8px 10px;
+    }
+    .modal {
+        padding: 2rem;
+    }
+    .modal h2 {
+        font-size: 1.8rem;
+    }
+    .modal input {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+    }
+    .modal-buttons {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 10px;
+    }
+    .modal-buttons button {
+        width: 100%;
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .usuarios-container {
+        padding: 1rem;
+    }
+    .usuarios-title {
+        font-size: 1.6rem;
+    }
+    .tabla-usuarios th,
+    .tabla-usuarios td {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+    .rol-badge {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+        min-width: 70px;
+    }
+}
